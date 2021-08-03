@@ -1,7 +1,7 @@
 import { gql, useQuery } from '@apollo/client'
-import router, { useRouter } from 'next/router'
-import { useContext } from 'react'
-import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useContext , useEffect } from 'react'
+
 import { IQuery } from '../../src/commons/types/generated/types'
 import { GlobalContext } from '../_app'
 
