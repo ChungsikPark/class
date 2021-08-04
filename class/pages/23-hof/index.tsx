@@ -1,5 +1,5 @@
 export default function HOFPage() {
-  const onClickButton = (asdf) => (event) => {
+  const onClickButton = (asdf: any) => () => {
     alert(asdf);
   };
   // onClickButton()
