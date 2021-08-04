@@ -1,33 +1,39 @@
-import { gql, useMutation } from "@apollo/client"
-import { ChangeEvent, useState } from "react"
-import { IMutation, IMutationCreateUserArgs } from "../../src/commons/types/generated/types"
+import { gql, useMutation } from "@apollo/client";
+import { ChangeEvent, useState } from "react";
+import {
+  IMutation,
+  IMutationCreateUserArgs,
+} from "../../src/commons/types/generated/types";
+import withAuth from "../../src/components/commons/hocs/withAuth";
 
 const CREATE_USER = gql`
-  mutation createUser($createUserInput: CreateUserInput!){
-    createUser(createUserInput: $createUserInput){
+  mutation createUser($createUserInput: CreateUserInput!) {
+    createUser(createUserInput: $createUserInput) {
       _id
     }
   }
-`
+`;
 
-export default function SignUpPage() {
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [name, setName] = useState('')
-  const [createUSer] = useMutation<Pick<IMutation, "createUser">, IMutationCreateUserArgs>(CREATE_USER)
+function SignUpPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [createUSer] = useMutation<
+    Pick<IMutation, "createUser">,
+    IMutationCreateUserArgs
+  >(CREATE_USER);
 
   const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value)
-  }
+    setEmail(event.target.value);
+  };
 
   const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value)
-  }
+    setPassword(event.target.value);
+  };
 
   const onChangeName = (event: ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value)
-  }
+    setName(event.target.value);
+  };
 
   const onClickSignUp = async () => {
     try {
@@ -36,15 +42,15 @@ export default function SignUpPage() {
           createUserInput: {
             email: email,
             password: password,
-            name: name
-          }
-        }
-      })
-      alert("회원가입완료!")
+            name: name,
+          },
+        },
+      });
+      alert("회원가입완료!");
     } catch (error) {
-      alert(error.message)
+      alert(error.message);
     }
-  }
+  };
 
   return (
     <>
@@ -53,5 +59,7 @@ export default function SignUpPage() {
       이름: <input onChange={onChangeName} type="text" />
       <button onClick={onClickSignUp}>SIGN UP</button>
     </>
-  )
+  );
 }
+
+export default withAuth(SignUpPage);
