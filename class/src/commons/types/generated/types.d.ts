@@ -340,12 +340,16 @@ export type IQueryFetchBoardArgs = {
 
 
 export type IQueryFetchBoardsArgs = {
+  endDate?: Maybe<Scalars['DateTime']>;
+  startDate?: Maybe<Scalars['DateTime']>;
   search?: Maybe<Scalars['String']>;
   page?: Maybe<Scalars['Int']>;
 };
 
 
 export type IQueryFetchBoardsCountArgs = {
+  endDate?: Maybe<Scalars['DateTime']>;
+  startDate?: Maybe<Scalars['DateTime']>;
   search?: Maybe<Scalars['String']>;
 };
 
@@ -430,7 +434,7 @@ export type IUseditem = {
   images?: Maybe<Array<Scalars['String']>>;
   useditemAddress?: Maybe<IUseditemAddress>;
   buyer?: Maybe<IUser>;
-  seller: IUser;
+  seller?: Maybe<IUser>;
   soldAt?: Maybe<Scalars['DateTime']>;
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
