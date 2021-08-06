@@ -13,7 +13,7 @@ export default function FormUI(props) {
       />
       <Input01
         inputName="비밀번호"
-        type="pasword"
+        type="password"
         register={{ ...props.register("password") }}
         errorMessage={props.errors.password?.message}
       />
