@@ -13,7 +13,6 @@ import { globalStyles } from "../src/commons/styles/globalStyles";
 import { createUploadLink } from "apollo-upload-client";
 import { useState, createContext, Dispatch, SetStateAction } from "react";
 
-
 // import firebase from "firebase/app";
 // import "firebase/firestore";
 
@@ -29,23 +28,26 @@ import { useState, createContext, Dispatch, SetStateAction } from "react";
 
 interface IContext {
   accessToken: string;
-  setAccessToken: Dispatch<SetStateAction<string>>
+  setAccessToken: Dispatch<SetStateAction<string>>;
 }
 
-export const GlobalContext = createContext<IContext>({})
+export const GlobalContext = createContext<IContext>({});
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [accessToken, setAccessToken] = useState()
+  const [accessToken, setAccessToken] = useState("");
+  const [userInfo, setUserInfo] = useState({});
   const value = {
     accessToken: accessToken,
-    setAccessToken: setAccessToken
-  }
+    setAccessToken: setAccessToken,
+    userInfo: userInfo,
+    setUserInfo: setUserInfo,
+  };
 
   const uploadLink = createUploadLink({
     uri: "http://backend02.codebootcamp.co.kr/graphql",
     headers: {
       authorization: `Bearer ${accessToken}`,
-    }
+    },
   });
 
   const client = new ApolloClient({
