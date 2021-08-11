@@ -18,27 +18,52 @@ export default function LayoutBannerUI() {
       <Slider {...settings}>
         <div>
           <h3>
-            <img src="/images/profile.png" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
           </h3>
         </div>
         <div>
           <h3>
-            <img src="/images/profile.png" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
           </h3>
         </div>
         <div>
           <h3>
-            <img src="/images/profile.png" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
           </h3>
         </div>
         <div>
           <h3>
-            <img src="/images/profile.png" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
           </h3>
         </div>
         <div>
           <h3>
-            <img src="/images/profile.png" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
+            <img src="/ic_star-24px_blue.svg" />
           </h3>
         </div>
       </Slider>

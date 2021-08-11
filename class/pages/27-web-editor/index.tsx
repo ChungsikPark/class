@@ -18,7 +18,7 @@ const CREATE_BOARD = gql`
 
 export default function WebEditorPage() {
   const router = useRouter();
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, trigger } = useForm();
   const [createBoard] = useMutation(CREATE_BOARD);
 
   const onclickBtn = async (data) => {
@@ -40,7 +40,9 @@ export default function WebEditorPage() {
   };
 
   const onChangeContents = (value) => {
-    setValue("contents", value);
+    const isBlank = "<p><br></p>"; // 빈 값일 때 남는 태그들... 해결해주기 위함
+    setValue("contents", value === isBlank ? "" : value);
+    trigger("contents"); // 이벤트가 먹히게 끔 위함
   };
 
   return (
