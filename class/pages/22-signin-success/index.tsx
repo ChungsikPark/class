@@ -1,9 +1,9 @@
-import { gql, useQuery } from '@apollo/client'
-import { useRouter } from 'next/router'
-import { useContext , useEffect } from 'react'
+import { gql, useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-import { IQuery } from '../../src/commons/types/generated/types'
-import { GlobalContext } from '../_app'
+import { IQuery } from "../../src/commons/types/generated/types";
+// import { GlobalContext } from "../_app";
 
 const FETCH_USER_LOGGED_IN = gql`
   query fetchUserLoggedIn {
@@ -11,19 +11,20 @@ const FETCH_USER_LOGGED_IN = gql`
       name
     }
   }
-`
+`;
 
 export default function SignInSuccessPage() {
-  const router = useRouter()
-  const { accessToken } = useContext(GlobalContext)
-  const { data } = useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN)
+  const router = useRouter();
+  // const { accessToken } = useContext(GlobalContext);
+  const { data } =
+    useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN);
 
   useEffect(() => {
-    if (!accessToken) router.push("/22-signin")
-  })
+    if (!localStorage.getItem("refreshToken")) router.push("/22-signin");
+  }, []);
   return (
     <>
       <div>{data?.fetchUserLoggedIn.name}님 환영합니다~</div>
     </>
-  )
+  );
 }
