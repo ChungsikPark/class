@@ -20,6 +20,10 @@ import {
   useEffect,
 } from "react";
 import { getAccessToken } from "../src/commons/libraries/getAccessToken";
+import * as Sentry from "@sentry/nextjs";
+Sentry.init({
+  dsn: "https://400e5562a3124269ba702530f9819ec0@o965493.ingest.sentry.io/5916345",
+});
 
 // import firebase from "firebase/app";
 // import "firebase/firestore";
@@ -75,7 +79,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const uploadLink = createUploadLink({
     uri: "https://backend02.codebootcamp.co.kr/graphql",
     headers: {
-      authorization: `Bearer ${accessToken || null}`,
+      authorization: `Bearer ${accessToken}`,
     },
     credentials: "include",
   });
@@ -83,6 +87,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const client = new ApolloClient({
     link: ApolloLink.from([errorLink, uploadLink as unknown as ApolloLink]),
     cache: new InMemoryCache(),
+    connectToDevTools: true,
   });
 
   return (
