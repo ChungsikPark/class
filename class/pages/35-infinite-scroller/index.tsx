@@ -35,7 +35,7 @@ const InfiniteScrollerPage = () => {
   const onLoadMore = () => {
     if (!data) return;
     fetchMore({
-      variables: { page: Math.floor(data?.fetchBoards.length) / 10 + 1 },
+      variables: { page: Math.floor(data?.fetchBoards.length / 10) + 1 },
       updateQuery: (prev, { fetchMoreResult }) => {
         if (!fetchMoreResult.fetchBoards.length) setHasMore(false);
         return {
